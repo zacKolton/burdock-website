@@ -1,0 +1,17 @@
+{
+  "name": "bhb-website",
+  "version": "1.0.0",
+  "description": "Website for birds hill burdock",
+  "main": "./js/index.js",
+  "scripts": {
+    "tree": "node printTree.cjs",
+    "build": "webpack --config webpack.config.cjs"
+  },
+  "author": "Zachary Kolton",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-loader": "^9.2.1",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
