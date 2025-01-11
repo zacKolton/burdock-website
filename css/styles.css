@@ -1,3 +1,5 @@
+@import './colours.css';
+
 body {
     font-family: Arial, sans-serif;
 }
@@ -20,7 +22,7 @@ header {
 nav {
     display: flex;
     height: 60px;
-    background-color: black;
+    background-color: var(--gold-primary);
     align-items: center;
     justify-content: space-between;
     padding: 15px;
