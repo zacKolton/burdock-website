@@ -11,41 +11,13 @@
 
 /***/ }),
 
-/***/ "./js/nav_button_handler.js":
-/*!**********************************!*\
-  !*** ./js/nav_button_handler.js ***!
-  \**********************************/
+/***/ "./nav_button_handler.js":
+/*!*******************************!*\
+  !*** ./nav_button_handler.js ***!
+  \*******************************/
 /***/ (() => {
 
-document.addEventListener("DOMContentLoaded", function () {
-  const mainContent = document.querySelector('main');
-  const headElement = document.getElementsByTagName('head')[0];
-  document.querySelectorAll('nav button').forEach(button => {
-    button.addEventListener('click', function (e) {
-      e.preventDefault(); // Prevent default button click behavior
-      const pageName = this.id.split('_')[1]; // assuming IDs like 'button_home'
 
-      // Remove existing content-specific stylesheet
-      const existingStyle = document.getElementById('content-style');
-      if (existingStyle) {
-        headElement.removeChild(existingStyle);
-      }
-
-      // Create new link element for the stylesheet
-      const styleSheet = document.createElement('link');
-      styleSheet.id = 'content-style';
-      styleSheet.rel = 'stylesheet';
-      styleSheet.type = 'text/css';
-      styleSheet.href = `css/content/${pageName}.css`;
-      headElement.appendChild(styleSheet);
-
-      // Fetch and display the HTML content
-      fetch(`content/${pageName}.html`).then(response => response.text()).then(html => {
-        mainContent.innerHTML = html; // replace the main content
-      }).catch(error => console.error('Error loading the page:', error));
-    });
-  });
-});
 
 /***/ }),
 
@@ -703,7 +675,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_constants_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/constants.css */ "./css/constants.css");
 /* harmony import */ var _css_colours_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/colours.css */ "./css/colours.css");
-/* harmony import */ var _nav_button_handler_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nav_button_handler.js */ "./js/nav_button_handler.js");
+/* harmony import */ var _nav_button_handler_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../nav_button_handler.js */ "./nav_button_handler.js");
 /* harmony import */ var _nav_button_handler_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nav_button_handler_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./config.js */ "./js/config.js");
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_3__);

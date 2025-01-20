@@ -54,6 +54,11 @@ nav button {
     font-size: 14px;
 }
 
+nav button a {
+    text-decoration: none;
+    color: black;
+}
+
 main {
     flex: 1;
     display: flex;
