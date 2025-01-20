@@ -1,4 +1,14 @@
 @import './colours.css';
+@import './constants.css';
+
+html, body {
+    height: 100%; /* Ensures the full height of the viewport is used */
+    margin: 0;    /* Remove default margin */
+    padding: 0;   /* Remove default padding */
+    font-family: Arial, sans-serif; /* Sets the default font for the whole page */
+    display: flex; /* Enables flexbox to contain all children */
+    flex-direction: column; /* Stacks children vertically */
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -7,6 +17,13 @@ body {
 header {
     display: flex;
     align-items: center; 
+    background-color: var(--green-secondary);
+    border-radius: var(--boarder-radius);
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+
 }
 
 .logo {
@@ -27,7 +44,10 @@ nav {
     justify-content: space-between;
     padding: 15px;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: var(--boarder-radius);
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 nav button {
@@ -35,11 +55,16 @@ nav button {
 }
 
 main {
+    flex: 1;
     display: flex;
     justify-content: space-between;
-    padding: 20px 10px 20px 10px;
     box-sizing: border-box;
     height: calc(100% - 200px);
+    outline: 1px dotted black;
+    border-radius: var(--boarder-radius);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 footer {
@@ -49,38 +74,6 @@ footer {
     display: flex; 
     align-items: center; 
     justify-content: center; 
-}
-
-.left-area {
-    flex: 1;
-    margin-left: 0px;
-    margin-right: 10px;
-    border: 2px solid #ccc;
-    padding: 10px 10px 10px 10px;
-    background-color: #f0f0f0;
-    max-width: 250px;
-    border-radius: 5px;
-}
-
-.mid-area {
-    flex: 1;
-    margin: 0 10px 0 10px;
-    border: 2px solid #ccc;
-    padding: 10px 10px 10px 10px;
-    background-color: #f0f0f0;
-    overflow-x: hidden;
-    border-radius: 5px;
-}
-
-.right-area {
-    flex: 1;
-    margin-left: 10px;
-    margin-right: 0px;
-    border: 2px solid #ccc;
-    padding: 10px 10px 10px 10px;
-    background-color: #f0f0f0;
-    max-width: 250px;
-    border-radius: 5px;
 }
 
 .section-title {
