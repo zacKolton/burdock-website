@@ -1,0 +1,42 @@
+#product-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 10px;
+    max-width: 960px;
+    width: 100%; /* Ensure it uses the full width up to its max-width */
+    margin: 0 auto;              /* Centers the container in the parent */
+}
+  
+.product {
+    width: 200px;  /* Fixed width for each product card */
+    margin: 10px;  /* Adjust margin as needed */
+    box-sizing: border-box;
+    float: left;   /* Optional: Helps keep alignment consistent */
+}
+  
+.image img {
+    width: 100%;
+    display: block;
+}
+
+.title, .price {
+    text-align: center;
+    margin-top: 10px;
+}
+
+@media (max-width: 800px) {
+    .product {
+        width: calc(40% - 20px); /* Adjusts for two products per row, accounting for margins */
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 500px) {
+    .product {
+        width: calc(40% - 20px); /* Continues to ensure spacing between two products */
+        max-width: 200px;
+    }
+}

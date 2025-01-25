@@ -1,23 +1,125 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./js/config.js":
 /*!**********************!*\
   !*** ./js/config.js ***!
   \**********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getProducts: () => (/* binding */ getProducts)
+/* harmony export */ });
+/* harmony import */ var _products_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../products.json */ "./products.json");
 
+function getProducts() {
+  return _products_json__WEBPACK_IMPORTED_MODULE_0__;
+}
 
 /***/ }),
 
-/***/ "./nav_button_handler.js":
-/*!*******************************!*\
-  !*** ./nav_button_handler.js ***!
-  \*******************************/
-/***/ (() => {
+/***/ "./js/products.js":
+/*!************************!*\
+  !*** ./js/products.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config */ "./js/config.js");
 
 
+/**
+ * - Initializes product loading on page load and sets up a click event listener on the "Home" button.
+ * - This ensures products are dynamically loaded into the designated area both initially and when the "Home" button is clicked.
+ * - The event listener prevents the default button action to avoid page reloads and calls `loadProducts()` to refresh the product display.
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  loadProducts(); // Load products when the page loads
+
+  document.getElementById("button_home").addEventListener('click', function (e) {
+    e.preventDefault();
+    loadProducts(); // Reload products when the home button is clicked
+  });
+});
+function loadProducts() {
+  const productArea = document.getElementById('product-area');
+  productArea.innerHTML = ''; // Clear existing products
+
+  let productJson = (0,_config__WEBPACK_IMPORTED_MODULE_0__.getProducts)();
+  productJson.forEach(product => {
+    const productElement = createProductElement(product);
+    productArea.appendChild(productElement);
+  });
+}
+
+/**
+ * Creates and returns a DOM element for a product with structured data.
+ *
+ * This function constructs a DOM element representing a single product using provided product data.
+ * The product element includes child elements for the product's image, name, and price.
+ * Each product is assigned a unique ID generated from its name, ensuring that individual product elements
+ * can be uniquely identified within the DOM.
+ *
+ * Parameters:
+ * - product (Object): The product data object, which must include 'name', 'image-path', and 'price' properties.
+ *
+ * Returns:
+ * - HTMLElement: The fully constructed product DOM element ready to be inserted into the webpage.
+ *
+ * Usage:
+ * This function is intended to be used when dynamically building the display of products on a webpage,
+ * typically called from a loop that processes an array of product data.
+ */
+function createProductElement(product) {
+  const productDiv = document.createElement('div');
+  productDiv.className = 'product';
+  productDiv.id = `product-${hashProductName(product.name)}`; // Creating a unique ID based on product name
+
+  const imageDiv = document.createElement('div');
+  imageDiv.className = 'image';
+  const img = document.createElement('img');
+  img.src = product['image-path'];
+  img.alt = product.name;
+  imageDiv.appendChild(img);
+  const titleDiv = document.createElement('div');
+  titleDiv.className = 'title';
+  titleDiv.textContent = product.name;
+  const priceDiv = document.createElement('div');
+  priceDiv.className = 'price';
+  priceDiv.textContent = `$${product.price}`;
+  productDiv.appendChild(imageDiv);
+  productDiv.appendChild(titleDiv);
+  productDiv.appendChild(priceDiv);
+  return productDiv;
+}
+
+/**
+ * Generates a simple hash code from a product name.
+ *
+ * This function uses a basic hashing algorithm to convert a product name string into a numeric hash.
+ * It is primarily used to create unique identifiers for product elements by hashing their names.
+ * The hash is generated using a reduction method that combines character codes in a way that
+ * minimally satisfies uniqueness for typical product naming conventions.
+ *
+ * Parameters:
+ * - name (String): The name of the product to hash.
+ *
+ * Returns:
+ * - Number: The hash code derived from the product name.
+ *
+ * Usage:
+ * This hash function is utilized in the creation of unique HTML element IDs for dynamically generated
+ * product elements, aiding in element selection and manipulation in the DOM.
+ */
+function hashProductName(name) {
+  // Simple hash function for example purposes
+  return name.split('').reduce((a, b) => {
+    a = (a << 5) - a + b.charCodeAt(0);
+    return a & a;
+  }, 0);
+}
 
 /***/ }),
 
@@ -27,7 +129,6 @@
   \***************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -69,7 +170,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
   \*****************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -92,13 +192,63 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./css/products.css":
+/*!****************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./css/products.css ***!
+  \****************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `#product-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 10px;
+  }
+  
+  .product {
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    width: calc(25% - 20px); /* Adjusts for margin */
+    box-sizing: border-box;
+  }
+  
+  .image img {
+    width: 100%;
+    display: block;
+  }
+  
+  .title, .price {
+    text-align: center;
+    margin-top: 10px;
+  }`, "",{"version":3,"sources":["webpack://./css/products.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,eAAe;IACf,2BAA2B;IAC3B,uBAAuB;IACvB,aAAa;IACb,SAAS;EACX;;EAEA;IACE,sBAAsB;IACtB,YAAY;IACZ,aAAa;IACb,uBAAuB,EAAE,uBAAuB;IAChD,sBAAsB;EACxB;;EAEA;IACE,WAAW;IACX,cAAc;EAChB;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB","sourcesContent":["#product-area {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: flex-start;\n    align-items: flex-start;\n    padding: 20px;\n    gap: 10px;\n  }\n  \n  .product {\n    border: 1px solid #ddd;\n    margin: 10px;\n    padding: 10px;\n    width: calc(25% - 20px); /* Adjusts for margin */\n    box-sizing: border-box;\n  }\n  \n  .image img {\n    width: 100%;\n    display: block;\n  }\n  \n  .title, .price {\n    text-align: center;\n    margin-top: 10px;\n  }"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/runtime/api.js":
 /*!*****************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/api.js ***!
   \*****************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /*
@@ -193,7 +343,6 @@ module.exports = function (cssWithMappingToString) {
   \************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function (item) {
@@ -219,7 +368,6 @@ module.exports = function (item) {
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -272,7 +420,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -319,13 +466,64 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./css/products.css":
+/*!**************************!*\
+  !*** ./css/products.css ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_products_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./products.css */ "./node_modules/css-loader/dist/cjs.js!./css/products.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_products_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_products_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_products_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_products_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
   \****************************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 var stylesInDOM = [];
@@ -419,7 +617,6 @@ module.exports = function (list, options) {
   \********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 var memo = {};
@@ -463,7 +660,6 @@ module.exports = insertBySelector;
   \**********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -483,7 +679,6 @@ module.exports = insertStyleElement;
   \**********************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -503,7 +698,6 @@ module.exports = setAttributesWithoutAttributes;
   \***************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -574,7 +768,6 @@ module.exports = domAPI;
   \*********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -589,6 +782,16 @@ function styleTagTransform(css, styleElement) {
   }
 }
 module.exports = styleTagTransform;
+
+/***/ }),
+
+/***/ "./products.json":
+/*!***********************!*\
+  !*** ./products.json ***!
+  \***********************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('[{"image-path":"images/logo-base.png","name":"Product 1","price":"19.99"},{"image-path":"images/logo-base.png","name":"Product 2","price":"29.99"},{"image-path":"images/logo-base.png","name":"Product 3","price":"39.99"},{"image-path":"images/logo-base.png","name":"Product 4","price":"49.99"},{"image-path":"images/logo-base.png","name":"Product 5","price":"49.99"}]');
 
 /***/ })
 
@@ -666,20 +869,19 @@ module.exports = styleTagTransform;
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
-"use strict";
 /*!*********************!*\
   !*** ./js/index.js ***!
   \*********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_constants_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/constants.css */ "./css/constants.css");
 /* harmony import */ var _css_colours_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/colours.css */ "./css/colours.css");
-/* harmony import */ var _nav_button_handler_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../nav_button_handler.js */ "./nav_button_handler.js");
-/* harmony import */ var _nav_button_handler_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nav_button_handler_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./config.js */ "./js/config.js");
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_config_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _css_products_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/products.css */ "./css/products.css");
+/* harmony import */ var _products_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./products.js */ "./js/products.js");
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./config.js */ "./js/config.js");
 // CSS
+
 
 
 
