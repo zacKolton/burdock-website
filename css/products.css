@@ -3,7 +3,8 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     gap: 10px;
     max-width: 960px;
     width: 100%; /* Ensure it uses the full width up to its max-width */

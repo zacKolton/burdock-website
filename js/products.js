@@ -9,7 +9,7 @@ import { getProducts } from "./config";
 document.addEventListener("DOMContentLoaded", function() {
     loadProducts();  // Load products when the page loads
 
-    document.getElementById("button_home").addEventListener('click', function(e) {
+    document.getElementById("button_shop").addEventListener('click', function(e) {
         e.preventDefault();
         loadProducts();  // Reload products when the home button is clicked
     });

@@ -1,26 +1,26 @@
 [
     {
-      "image-path": "images/logo-base.png",
+      "image-path": "../images/logo-base.png",
       "name": "Product 1",
       "price": "19.99"
     },
     {
-      "image-path": "images/logo-base.png",
+      "image-path": "../images/logo-base.png",
       "name": "Product 2",
       "price": "29.99"
     },
     {
-      "image-path": "images/logo-base.png",
+      "image-path": "../images/logo-base.png",
       "name": "Product 3",
       "price": "39.99"
     },
     {
-      "image-path": "images/logo-base.png",
+      "image-path": "../images/logo-base.png",
       "name": "Product 4",
       "price": "49.99"
     },
     {
-        "image-path": "images/logo-base.png",
+        "image-path": "../images/logo-base.png",
         "name": "Product 5",
         "price": "49.99"
       }

@@ -38,7 +38,7 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener("DOMContentLoaded", function () {
   loadProducts(); // Load products when the page loads
 
-  document.getElementById("button_home").addEventListener('click', function (e) {
+  document.getElementById("button_shop").addEventListener('click', function (e) {
     e.preventDefault();
     loadProducts(); // Reload products when the home button is clicked
   });
@@ -216,27 +216,45 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#product-area {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     gap: 10px;
-  }
+    max-width: 960px;
+    width: 100%; /* Ensure it uses the full width up to its max-width */
+    margin: 0 auto;              /* Centers the container in the parent */
+}
   
-  .product {
-    border: 1px solid #ddd;
-    margin: 10px;
-    padding: 10px;
-    width: calc(25% - 20px); /* Adjusts for margin */
+.product {
+    width: 200px;  /* Fixed width for each product card */
+    margin: 10px;  /* Adjust margin as needed */
     box-sizing: border-box;
-  }
+    float: left;   /* Optional: Helps keep alignment consistent */
+}
   
-  .image img {
+.image img {
     width: 100%;
     display: block;
-  }
-  
-  .title, .price {
+}
+
+.title, .price {
     text-align: center;
     margin-top: 10px;
-  }`, "",{"version":3,"sources":["webpack://./css/products.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,eAAe;IACf,2BAA2B;IAC3B,uBAAuB;IACvB,aAAa;IACb,SAAS;EACX;;EAEA;IACE,sBAAsB;IACtB,YAAY;IACZ,aAAa;IACb,uBAAuB,EAAE,uBAAuB;IAChD,sBAAsB;EACxB;;EAEA;IACE,WAAW;IACX,cAAc;EAChB;;EAEA;IACE,kBAAkB;IAClB,gBAAgB;EAClB","sourcesContent":["#product-area {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: flex-start;\n    align-items: flex-start;\n    padding: 20px;\n    gap: 10px;\n  }\n  \n  .product {\n    border: 1px solid #ddd;\n    margin: 10px;\n    padding: 10px;\n    width: calc(25% - 20px); /* Adjusts for margin */\n    box-sizing: border-box;\n  }\n  \n  .image img {\n    width: 100%;\n    display: block;\n  }\n  \n  .title, .price {\n    text-align: center;\n    margin-top: 10px;\n  }"],"sourceRoot":""}]);
+}
+
+@media (max-width: 800px) {
+    .product {
+        width: calc(40% - 20px); /* Adjusts for two products per row, accounting for margins */
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 500px) {
+    .product {
+        width: calc(40% - 20px); /* Continues to ensure spacing between two products */
+        max-width: 200px;
+    }
+}
+`, "",{"version":3,"sources":["webpack://./css/products.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,eAAe;IACf,2BAA2B;IAC3B,uBAAuB;IACvB,kBAAkB;IAClB,mBAAmB;IACnB,SAAS;IACT,gBAAgB;IAChB,WAAW,EAAE,sDAAsD;IACnE,cAAc,eAAe,wCAAwC;AACzE;;AAEA;IACI,YAAY,GAAG,sCAAsC;IACrD,YAAY,GAAG,4BAA4B;IAC3C,sBAAsB;IACtB,WAAW,IAAI,8CAA8C;AACjE;;AAEA;IACI,WAAW;IACX,cAAc;AAClB;;AAEA;IACI,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI;QACI,uBAAuB,EAAE,6DAA6D;QACtF,gBAAgB;IACpB;AACJ;;AAEA;IACI;QACI,uBAAuB,EAAE,qDAAqD;QAC9E,gBAAgB;IACpB;AACJ","sourcesContent":["#product-area {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: flex-start;\n    align-items: flex-start;\n    padding-left: 10px;\n    padding-right: 10px;\n    gap: 10px;\n    max-width: 960px;\n    width: 100%; /* Ensure it uses the full width up to its max-width */\n    margin: 0 auto;              /* Centers the container in the parent */\n}\n  \n.product {\n    width: 200px;  /* Fixed width for each product card */\n    margin: 10px;  /* Adjust margin as needed */\n    box-sizing: border-box;\n    float: left;   /* Optional: Helps keep alignment consistent */\n}\n  \n.image img {\n    width: 100%;\n    display: block;\n}\n\n.title, .price {\n    text-align: center;\n    margin-top: 10px;\n}\n\n@media (max-width: 800px) {\n    .product {\n        width: calc(40% - 20px); /* Adjusts for two products per row, accounting for margins */\n        max-width: 200px;\n    }\n}\n\n@media (max-width: 500px) {\n    .product {\n        width: calc(40% - 20px); /* Continues to ensure spacing between two products */\n        max-width: 200px;\n    }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -791,7 +809,7 @@ module.exports = styleTagTransform;
   \***********************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('[{"image-path":"images/logo-base.png","name":"Product 1","price":"19.99"},{"image-path":"images/logo-base.png","name":"Product 2","price":"29.99"},{"image-path":"images/logo-base.png","name":"Product 3","price":"39.99"},{"image-path":"images/logo-base.png","name":"Product 4","price":"49.99"},{"image-path":"images/logo-base.png","name":"Product 5","price":"49.99"}]');
+module.exports = /*#__PURE__*/JSON.parse('[{"image-path":"../images/logo-base.png","name":"Product 1","price":"19.99"},{"image-path":"../images/logo-base.png","name":"Product 2","price":"29.99"},{"image-path":"../images/logo-base.png","name":"Product 3","price":"39.99"},{"image-path":"../images/logo-base.png","name":"Product 4","price":"49.99"},{"image-path":"../images/logo-base.png","name":"Product 5","price":"49.99"}]');
 
 /***/ })
 
