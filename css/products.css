@@ -16,6 +16,8 @@
     margin: 10px;  /* Adjust margin as needed */
     box-sizing: border-box;
     float: left;   /* Optional: Helps keep alignment consistent */
+    outline: 1px dotted black;
+    border-radius: var(--boarder-radius);
 }
   
 .image img {
@@ -24,8 +26,13 @@
 }
 
 .title, .price {
-    text-align: center;
-    margin-top: 10px;
+    text-align: left;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.price {
+    margin-bottom: 5px;
 }
 
 @media (max-width: 800px) {
