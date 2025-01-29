@@ -192,10 +192,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./css/products.css":
-/*!****************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./css/products.css ***!
-  \****************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./css/shop.css":
+/*!************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./css/shop.css ***!
+  \************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -211,7 +211,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `#product-area {
+___CSS_LOADER_EXPORT___.push([module.id, `#shop-notice {
+    display: flex;
+    width: 100%;
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+
+#product-area {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -229,6 +238,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#product-area {
     margin: 10px;  /* Adjust margin as needed */
     box-sizing: border-box;
     float: left;   /* Optional: Helps keep alignment consistent */
+    outline: 1px dotted black;
+    border-radius: var(--boarder-radius);
 }
   
 .image img {
@@ -237,8 +248,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#product-area {
 }
 
 .title, .price {
-    text-align: center;
-    margin-top: 10px;
+    text-align: left;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.price {
+    margin-bottom: 5px;
 }
 
 @media (max-width: 800px) {
@@ -254,7 +270,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#product-area {
         max-width: 200px;
     }
 }
-`, "",{"version":3,"sources":["webpack://./css/products.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,eAAe;IACf,2BAA2B;IAC3B,uBAAuB;IACvB,kBAAkB;IAClB,mBAAmB;IACnB,SAAS;IACT,gBAAgB;IAChB,WAAW,EAAE,sDAAsD;IACnE,cAAc,eAAe,wCAAwC;AACzE;;AAEA;IACI,YAAY,GAAG,sCAAsC;IACrD,YAAY,GAAG,4BAA4B;IAC3C,sBAAsB;IACtB,WAAW,IAAI,8CAA8C;AACjE;;AAEA;IACI,WAAW;IACX,cAAc;AAClB;;AAEA;IACI,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI;QACI,uBAAuB,EAAE,6DAA6D;QACtF,gBAAgB;IACpB;AACJ;;AAEA;IACI;QACI,uBAAuB,EAAE,qDAAqD;QAC9E,gBAAgB;IACpB;AACJ","sourcesContent":["#product-area {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: flex-start;\n    align-items: flex-start;\n    padding-left: 10px;\n    padding-right: 10px;\n    gap: 10px;\n    max-width: 960px;\n    width: 100%; /* Ensure it uses the full width up to its max-width */\n    margin: 0 auto;              /* Centers the container in the parent */\n}\n  \n.product {\n    width: 200px;  /* Fixed width for each product card */\n    margin: 10px;  /* Adjust margin as needed */\n    box-sizing: border-box;\n    float: left;   /* Optional: Helps keep alignment consistent */\n}\n  \n.image img {\n    width: 100%;\n    display: block;\n}\n\n.title, .price {\n    text-align: center;\n    margin-top: 10px;\n}\n\n@media (max-width: 800px) {\n    .product {\n        width: calc(40% - 20px); /* Adjusts for two products per row, accounting for margins */\n        max-width: 200px;\n    }\n}\n\n@media (max-width: 500px) {\n    .product {\n        width: calc(40% - 20px); /* Continues to ensure spacing between two products */\n        max-width: 200px;\n    }\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./css/shop.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,WAAW;IACX,gBAAgB;IAChB,iBAAiB;IACjB,mBAAmB;AACvB;;;AAGA;IACI,aAAa;IACb,eAAe;IACf,2BAA2B;IAC3B,uBAAuB;IACvB,kBAAkB;IAClB,mBAAmB;IACnB,SAAS;IACT,gBAAgB;IAChB,WAAW,EAAE,sDAAsD;IACnE,cAAc,eAAe,wCAAwC;AACzE;;AAEA;IACI,YAAY,GAAG,sCAAsC;IACrD,YAAY,GAAG,4BAA4B;IAC3C,sBAAsB;IACtB,WAAW,IAAI,8CAA8C;IAC7D,yBAAyB;IACzB,oCAAoC;AACxC;;AAEA;IACI,WAAW;IACX,cAAc;AAClB;;AAEA;IACI,gBAAgB;IAChB,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI;QACI,uBAAuB,EAAE,6DAA6D;QACtF,gBAAgB;IACpB;AACJ;;AAEA;IACI;QACI,uBAAuB,EAAE,qDAAqD;QAC9E,gBAAgB;IACpB;AACJ","sourcesContent":["#shop-notice {\n    display: flex;\n    width: 100%;\n    text-align: left;\n    margin-left: 10px;\n    margin-bottom: 10px;\n}\n\n\n#product-area {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: flex-start;\n    align-items: flex-start;\n    padding-left: 10px;\n    padding-right: 10px;\n    gap: 10px;\n    max-width: 960px;\n    width: 100%; /* Ensure it uses the full width up to its max-width */\n    margin: 0 auto;              /* Centers the container in the parent */\n}\n  \n.product {\n    width: 200px;  /* Fixed width for each product card */\n    margin: 10px;  /* Adjust margin as needed */\n    box-sizing: border-box;\n    float: left;   /* Optional: Helps keep alignment consistent */\n    outline: 1px dotted black;\n    border-radius: var(--boarder-radius);\n}\n  \n.image img {\n    width: 100%;\n    display: block;\n}\n\n.title, .price {\n    text-align: left;\n    margin-top: 5px;\n    margin-left: 10px;\n}\n\n.price {\n    margin-bottom: 5px;\n}\n\n@media (max-width: 800px) {\n    .product {\n        width: calc(40% - 20px); /* Adjusts for two products per row, accounting for margins */\n        max-width: 200px;\n    }\n}\n\n@media (max-width: 500px) {\n    .product {\n        width: calc(40% - 20px); /* Continues to ensure spacing between two products */\n        max-width: 200px;\n    }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -484,10 +500,10 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./css/products.css":
-/*!**************************!*\
-  !*** ./css/products.css ***!
-  \**************************/
+/***/ "./css/shop.css":
+/*!**********************!*\
+  !*** ./css/shop.css ***!
+  \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -506,7 +522,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_products_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./products.css */ "./node_modules/css-loader/dist/cjs.js!./css/products.css");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_shop_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./shop.css */ "./node_modules/css-loader/dist/cjs.js!./css/shop.css");
 
       
       
@@ -526,12 +542,12 @@ options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WE
 options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
 options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_products_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_shop_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
 
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_products_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_products_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_products_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_shop_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_shop_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_shop_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -809,7 +825,7 @@ module.exports = styleTagTransform;
   \***********************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('[{"image-path":"../images/logo-base.png","name":"Product 1","price":"19.99"},{"image-path":"../images/logo-base.png","name":"Product 2","price":"29.99"},{"image-path":"../images/logo-base.png","name":"Product 3","price":"39.99"},{"image-path":"../images/logo-base.png","name":"Product 4","price":"49.99"},{"image-path":"../images/logo-base.png","name":"Product 5","price":"49.99"}]');
+module.exports = /*#__PURE__*/JSON.parse('[{"image-path":"../images/logo-base.png","name":"Airpods 1/2 Case","price":"19.99"},{"image-path":"../images/logo-base.png","name":"Airpods Pro Case","price":"19.99"},{"image-path":"../images/logo-base.png","name":"Airpods 3 Case","price":"19.99"},{"image-path":"../images/logo-base.png","name":"Lighter","price":"9.99"},{"image-path":"../images/logo-base.png","name":"Keychain","price":"9.99"}]');
 
 /***/ })
 
@@ -895,7 +911,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_constants_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/constants.css */ "./css/constants.css");
 /* harmony import */ var _css_colours_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/colours.css */ "./css/colours.css");
-/* harmony import */ var _css_products_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/products.css */ "./css/products.css");
+/* harmony import */ var _css_shop_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/shop.css */ "./css/shop.css");
 /* harmony import */ var _products_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./products.js */ "./js/products.js");
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./config.js */ "./js/config.js");
 // CSS

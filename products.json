@@ -1,27 +1,27 @@
 [
     {
       "image-path": "../images/logo-base.png",
-      "name": "Product 1",
+      "name": "Airpods 1/2 Case",
       "price": "19.99"
     },
     {
       "image-path": "../images/logo-base.png",
-      "name": "Product 2",
-      "price": "29.99"
+      "name": "Airpods 3 Case",
+      "price": "19.99"
     },
     {
       "image-path": "../images/logo-base.png",
-      "name": "Product 3",
-      "price": "39.99"
+      "name": "Airpods Pro Case",
+      "price": "19.99"
     },
     {
       "image-path": "../images/logo-base.png",
-      "name": "Product 4",
-      "price": "49.99"
+      "name": "Lighter",
+      "price": "9.99"
     },
     {
         "image-path": "../images/logo-base.png",
-        "name": "Product 5",
-        "price": "49.99"
+        "name": "Keychain",
+        "price": "9.99"
       }
   ]
